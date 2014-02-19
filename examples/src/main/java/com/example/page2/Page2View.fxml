@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import java.lang.String?>
+<VBox fx:controller="com.example.page2.Page2ViewController"
+      spacing="4"
+      fx:id="root"
+      xmlns:fx="http://javafx.com/fxml">
+
+    <styleClass>
+        <String fx:value="page2"/>
+    </styleClass>
+    <children>
+        <Label text="This is page 2"/>
+    </children>
+
+</VBox>
