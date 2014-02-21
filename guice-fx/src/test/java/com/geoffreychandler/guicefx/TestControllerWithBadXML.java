@@ -2,7 +2,7 @@ package com.geoffreychandler.guicefx;
 
 import javax.inject.Inject;
 
-@Controls("BadTestView.fxml")
+@LoadedBy("BadTestView.fxml")
 public class TestControllerWithBadXML {
 
     @Inject

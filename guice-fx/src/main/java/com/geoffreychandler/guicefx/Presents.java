@@ -24,13 +24,14 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.TYPE;
 
 /**
- * Provides Guice a FXML file from which the annotated controller will be loaded.
+ * Provides Guice a FXML file that produces the {@link javafx.scene.Node}
+ * controlled by the annotated class.
  * <p>
  * For example, this annotation indicates MainView.xml (in the same package)
  * will reference this controller in its fx:controller.
  * <pre>
- *    &#064;Controls("MainView.xml")
- *    public class MainViewController {
+ *    &#064;Presents("MainView.xml")
+ *    public class MainPresenter {
  *        ...
  *    }
  * </pre>
@@ -41,6 +42,6 @@ import static java.lang.annotation.ElementType.TYPE;
 @Documented
 @Target(TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Controls {
+public @interface Presents {
     String value();
 }

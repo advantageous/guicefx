@@ -4,13 +4,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <BorderPane fx:id="root" prefHeight="80.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/8" fx:controller="com.example.main.MainViewController">
+            fx:controller="com.example.mvp.main.MainPresenter"
+            xmlns="http://javafx.com/javafx/8">
 
     <top>
         <HBox spacing="4">
             <children>
-                <Button onAction="#showPage1" text="Show Page 1"/>
-                <Button onAction="#showPage2" text="Show Page 2"/>
+                <Button fx:id="button1" text="Show Page 1" onAction="#gotoPage1"/>
+                <Button fx:id="button2" text="Show Page 2" onAction="#gotoPage2"/>
             </children>
         </HBox>
     </top>

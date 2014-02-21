@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
  * @author geoffc@gmail.com
  * @since 2/19/14 at 1:25 PM.
  */
-@Controls("TestView.fxml")
+@LoadedBy("TestView.fxml")
 public class TestController implements Initializable {
 
     @FXML

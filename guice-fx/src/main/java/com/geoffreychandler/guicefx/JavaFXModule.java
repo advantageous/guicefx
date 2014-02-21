@@ -28,7 +28,7 @@ import java.io.IOException;
 
 /**
  * Abstract Guice module for JavaFX applications.  Extend this class just as you would extend Guice's AbstractModule and
- * implement {@link#configureFXApplication()}.  Any controllers annotated with {@link Controls}
+ * implement {@link #configureFXApplication()}.  Any controllers annotated with {@link Presents} and {@link LoadedBy}
  * will be injected with dependencies as well as {@link javafx.fxml.FXML} annotations bound with JavaFX.
  *
  * @author geoffc@gmail.com (Geoffrey Chandler)
@@ -42,8 +42,9 @@ public abstract class JavaFXModule extends AbstractModule {
     protected abstract void configureFXApplication();
 
     /**
-     * Binds a listener for classes annotated with {@link Controls}.  The listener will create a
-     * {@link javafx.fxml.FXMLLoader} with a custom controller factory that will provide the Guice-created controller.
+     * Binds two listeners for classes annotated with {@link Presents} and {@link LoadedBy}.  Classes annotated with
+     * {@link Presents} will be directly set as the controller for the loaded fxml.  Classes annotated with
+     * {@link LoadedBy} will be used in the controller factory created by the {@link javafx.fxml.FXMLLoader}.
      */
     @Override
     protected final void configure() {
@@ -52,20 +53,44 @@ public abstract class JavaFXModule extends AbstractModule {
                 new AbstractMatcher<TypeLiteral<?>>() {
                     @Override
                     public boolean matches(TypeLiteral<?> typeLiteral) {
-                        return typeLiteral.getRawType().isAnnotationPresent(Controls.class);
+                        return typeLiteral.getRawType().isAnnotationPresent(Presents.class);
                     }
                 },
                 new TypeListener() {
                     @Override
                     public <I> void hear(TypeLiteral<I> type, TypeEncounter<I> encounter) {
-                        final Controls controls = type.getRawType().getAnnotation(Controls.class);
+                        final Presents presents = type.getRawType().getAnnotation(Presents.class);
                         encounter.register((InjectionListener<I>) injectee -> {
-                            final FXMLLoader loader = new FXMLLoader(injectee.getClass().getResource(controls.value()));
+                            final FXMLLoader loader = new FXMLLoader(injectee.getClass().getResource(presents.value()));
+                            loader.setController(injectee);
+                            try {
+                                loader.load();
+                            } catch (IOException e) {
+                                addError(e);
+                            }
+                        });
+                    }
+                }
+        );
+
+        bindListener(
+                new AbstractMatcher<TypeLiteral<?>>() {
+                    @Override
+                    public boolean matches(TypeLiteral<?> typeLiteral) {
+                        return typeLiteral.getRawType().isAnnotationPresent(LoadedBy.class);
+                    }
+                },
+                new TypeListener() {
+                    @Override
+                    public <I> void hear(TypeLiteral<I> type, TypeEncounter<I> encounter) {
+                        final LoadedBy loadedBy = type.getRawType().getAnnotation(LoadedBy.class);
+                        encounter.register((InjectionListener<I>) injectee -> {
+                            final FXMLLoader loader = new FXMLLoader(injectee.getClass().getResource(loadedBy.value()));
                             loader.setControllerFactory(aClass -> injectee);
                             try {
                                 loader.load();
                             } catch (IOException e) {
-                                throw new IllegalStateException(e);
+                                addError(e);
                             }
                         });
                     }
