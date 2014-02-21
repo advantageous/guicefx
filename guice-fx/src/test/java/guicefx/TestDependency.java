@@ -1,4 +1,4 @@
-package com.geoffreychandler.guicefx;
+package guicefx;
 
 /**
  * Simple class that will be injected into a controller in a test.

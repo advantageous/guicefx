@@ -1,7 +1,7 @@
 package com.example.mvp.pages;
 
 import com.example.mvp.main.MainPresenter;
-import com.geoffreychandler.guicefx.Presents;
+import guicefx.Presents;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

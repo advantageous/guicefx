@@ -1,4 +1,4 @@
-package com.geoffreychandler.guicefx;
+package guicefx;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

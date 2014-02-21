@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.geoffreychandler.guicefx;
+package guicefx;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

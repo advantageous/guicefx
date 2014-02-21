@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.geoffreychandler.guicefx;
+package guicefx;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;

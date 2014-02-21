@@ -1,4 +1,4 @@
-package com.geoffreychandler.guicefx;
+package guicefx;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

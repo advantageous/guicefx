@@ -2,7 +2,7 @@ package com.example.mvp.main;
 
 import com.example.mvp.pages.Page1Presenter;
 import com.example.mvp.pages.Page2Presenter;
-import com.geoffreychandler.guicefx.LoadedBy;
+import guicefx.LoadedBy;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;

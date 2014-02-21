@@ -1,7 +1,7 @@
 package com.example.mvp.config;
 
 import com.example.mvp.MVPApplication;
-import com.geoffreychandler.guicefx.JavaFXModule;
+import guicefx.JavaFXModule;
 
 /**
  * This is a simple module for this application.  There is only one bind statement.  In fact, this one bind statement
