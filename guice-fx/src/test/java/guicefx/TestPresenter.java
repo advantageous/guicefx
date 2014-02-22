@@ -9,13 +9,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * A Test Controller
+ * A Test Presenter
  *
  * @author geoffc@gmail.com
  * @since 2/19/14 at 1:25 PM.
  */
-@LoadedBy("TestView.fxml")
-public class TestController implements Initializable {
+@Presents("UnboundTestView.fxml")
+public class TestPresenter implements Initializable {
 
     @FXML
     private Text text;
