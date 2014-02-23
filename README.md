@@ -39,7 +39,7 @@ Use the @Presents if your fxml does not contain a fx:controller.
 
 ###3. Map an FXML field to your root element and provide an accessor.
 
-You will be injecting your presenters throughout your application and this will use this accessor to get the view.
+You will be injecting your presenters throughout your application and will need this accessor to get the view.
 
 ```java
     @FXML
