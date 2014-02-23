@@ -7,7 +7,7 @@ JavaFX application that uses [Google Guice](https://code.google.com/p/google-gui
 
 ##Quickstart
 
-###1. Create a fxml view.
+###1. Create an FXML view.
 
 You will need to access the root of your view from your presenter, so make sure you put an fx:id on your root element.
 
