@@ -67,6 +67,7 @@ public abstract class JavaFXModule extends AbstractModule {
                                 loader.load();
                             } catch (IOException e) {
                                 addError(e);
+                                throw new IllegalStateException(e);
                             }
                         });
                     }
@@ -91,6 +92,7 @@ public abstract class JavaFXModule extends AbstractModule {
                                 loader.load();
                             } catch (IOException e) {
                                 addError(e);
+                                throw new IllegalStateException(e);
                             }
                         });
                     }
