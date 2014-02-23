@@ -80,7 +80,7 @@ You will be injecting your presenters throughout your application and this will 
     }
 ```
 
-###6. bind your entry-point class. (Optional, but recommended)
+###6. Bind your entry-point class. (Optional, but recommended)
 
 The entry-point class does a injectMembers on itself, so you may wonder why you would want to also add it in the binder.
 The reason that it is here is so when Guice constructs it's graph of dependencies, it will throw an nice readable error
