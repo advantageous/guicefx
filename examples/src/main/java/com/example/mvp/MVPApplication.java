@@ -18,7 +18,7 @@ import javax.inject.Inject;
 public class MVPApplication extends Application {
 
     @Inject
-    private MainPresenter mainController;
+    private MainPresenter mainPresenter;
 
     public static void main(String[] args) {
         launch(args);
@@ -27,7 +27,7 @@ public class MVPApplication extends Application {
     @Override
     public void start(final Stage stage) throws Exception {
         Guice.createInjector(new ExampleApplicationModule()).injectMembers(this);
-        stage.setScene(new Scene(mainController.getRoot()));
+        stage.setScene(new Scene(mainPresenter.getRoot()));
         stage.show();
     }
 
