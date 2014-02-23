@@ -87,11 +87,11 @@ if there is a problem in the entry-point class.  Without this bind here, if ther
 the entry point, you would get an ugly exception when you did the injectMembers.
 
 ```java
-    public class ExampleApplicationModule extends JavaFXModule {
+    public class MyApplicationModule extends JavaFXModule {
 
         @Override
         protected void configureFXApplication() {
-            bind(MVPApplication.class);
+            bind(MyApplication.class);
         }
     }
 ```
