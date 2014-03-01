@@ -20,6 +20,8 @@ You will need to access the root of your view from your presenter, so make sure 
 
 ###2. Use either the @Presents or @LoadedBy annotations on your controller/presenter classes.
 
+Use the @LoadedBy annotation if your FXML contains a fx:controller attribute.
+
 ```java
     @LoadedBy(value = "MyView.fxml")
     public class MyController {
@@ -27,7 +29,7 @@ You will need to access the root of your view from your presenter, so make sure 
     }
 ```
 
-Use the @Presents if your fxml does not contain a fx:controller.
+Use @Presents if your fxml does not contain a fx:controller.
 
 ```java
     @Presents(value = "MyView.fxml")
