@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sailorgeoffrey/guice-fx.png)](https://travis-ci.org/sailorgeoffrey/guice-fx)
+[![Build Status](https://travis-ci.org/sailorgeoffrey/guicefx.png)](https://travis-ci.org/sailorgeoffrey/guicefx)
 ##Lightweight Guice integration for JavaFX
 
 This is a simple library for creating a [MVP](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter)
