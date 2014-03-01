@@ -1,6 +1,7 @@
 *.class
 build/*
 classes/*
+target/*
 
 .idea/*
 *.iml
