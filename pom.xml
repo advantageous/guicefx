@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>guice-fx</groupId>
-    <artifactId>guice-fx-parent</artifactId>
+    <groupId>io.advantageous.guicefx</groupId>
+    <artifactId>guicefx-bundle</artifactId>
     <version>0.2.0</version>
     <packaging>pom</packaging>
 
@@ -17,19 +17,22 @@
         </license>
     </licenses>
 
-    <name>GuiceFX</name>
+    <name>GuiceFX Bundle</name>
     <description>
         This is a simple library for creating a MVP JavaFX application that uses Google Guice.
     </description>
-    <url>https://github.com/sailorgeoffrey/guice-fx</url>
+    <url>https://github.com/sailorgeoffrey/guicefx</url>
 
     <scm>
-        <url>https://github.com/sailorgeoffrey/guice-fx.git</url>
+        <url>https://github.com/sailorgeoffrey/guicefx.git</url>
     </scm>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <modules>
-        <module>guice-fx</module>
+        <module>guicefx</module>
         <module>examples</module>
     </modules>
 

@@ -1,4 +1,4 @@
-package guicefx;
+package io.advantageous.guicefx;
 
 /**
  * Simple class that will be injected into a controller in a test.

@@ -1,4 +1,4 @@
-package guicefx;
+package io.advantageous.guicefx;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -36,6 +36,18 @@ public class JavaFXModuleTest {
 
     @Test(expected = ProvisionException.class)
     public void testExceptionFromBadFXML() {
+        Injector injector = Guice.createInjector(new JavaFXModule() {
+            @Override
+            protected void configureFXApplication() {
+                bind(TestControllerWithBadXML.class);
+            }
+        });
+
+        injector.getInstance(TestControllerWithBadXML.class);
+    }
+
+    @Test(expected = ProvisionException.class)
+    public void testWrongAnnotation() {
         Injector injector = Guice.createInjector(new JavaFXModule() {
             @Override
             protected void configureFXApplication() {

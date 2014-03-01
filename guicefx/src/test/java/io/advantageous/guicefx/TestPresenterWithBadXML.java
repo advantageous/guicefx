@@ -1,4 +1,4 @@
-package guicefx;
+package io.advantageous.guicefx;
 
 import javax.inject.Inject;
 

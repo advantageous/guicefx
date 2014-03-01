@@ -2,9 +2,7 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
-<AnchorPane prefHeight="200.0" prefWidth="200.0" fx:controller="guicefx.TestController"
+<AnchorPane prefHeight="200.0" prefWidth="200.0"
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"/>
-    </children>
+    <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"/>
 </AnchorPane>

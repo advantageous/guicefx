@@ -1,4 +1,4 @@
-package guicefx;
+package io.advantageous.guicefx;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
