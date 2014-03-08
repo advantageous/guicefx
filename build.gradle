@@ -64,7 +64,10 @@ project(':guicefx') {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
                 repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                    authentication(userName: sonatypeUsername ?: '', password: sonatypePassword ?: '')
+                    try {
+                        authentication(userName: sonatypeUsername, password: sonatypePassword)
+                    } catch (MissingPropertyException ignore) {
+                    }
                 }
 
                 pom.project {
