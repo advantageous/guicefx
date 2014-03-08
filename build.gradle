@@ -1,0 +1,113 @@
+/*
+ * Copyright (C) 2014. Geoffrey Chandler.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+project(':guicefx') {
+
+    apply plugin: 'maven'
+    apply plugin: 'signing'
+
+    group = 'io.adventageous.guicefx'
+    version = '0.2.1'
+
+    dependencies {
+        testCompile "junit:junit:4.11"
+        compile 'com.google.inject:guice:3.0'
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from 'build/docs/javadoc'
+    }
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allSource
+        classifier = 'sources'
+    }
+
+    artifacts {
+        archives jar
+        archives javadocJar
+        archives sourcesJar
+    }
+
+    signing {
+        sign configurations.archives
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    authentication(userName: sonatypeUsername, password: sonatypePassword)
+                }
+
+                pom.project {
+                    name 'GuiceFX'
+                    packaging 'jar'
+                    description 'This is a simple library for creating a MVP JavaFX application that uses Google Guice.'
+                    url 'http://gradlefx.github.com/'
+
+                    scm {
+                        url 'scm:git@github.com:sailorgeoffrey/guicefx.git'
+                        connection 'scm:git@github.com:sailorgeoffrey/guicefx.git'
+                        developerConnection 'scm:git@github.com:sailorgeoffrey/guicefx.git'
+                    }
+
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution 'repo'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'sailorgeoffrey'
+                            name 'Geoffrey Chandler'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+project(':examples:mvp-app') {
+    jar {
+        manifest {
+            attributes 'Main-Class': 'com.example.mvp.MVPApplication'
+        }
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
+    sourceSets.main.resources.srcDir 'src/main/java'
+    dependencies {
+        compile project(':guicefx')
+    }
+}
