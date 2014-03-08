@@ -31,7 +31,7 @@ project(':guicefx') {
     apply plugin: 'signing'
 
     group = 'io.adventageous.guicefx'
-    version = '0.2.1'
+    version = '0.2.2'
 
     dependencies {
         testCompile "junit:junit:4.11"

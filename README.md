@@ -6,7 +6,22 @@ JavaFX application that uses [Google Guice](https://code.google.com/p/google-gui
 
 ##Quickstart
 
-###1. Create an FXML view.
+###1. Add maven/gradle dependency
+
+If you are using Maven, add the dependency to your pom.xml
+```xml
+    <dependency>
+        <groupId>io.advantageous.guicefx</groupId>
+        <artifactId>guicefx</artifactId>
+        <version>0.2.2</version>
+    </dependency>
+```
+If you are using Gradle
+```groovy
+    compile 'io.advantageous.guicefx:guicefx:0.2.2'
+```
+
+###2. Create an FXML view.
 
 You will need to access the root of your view from your presenter, so make sure you put an fx:id on your root element.
 
@@ -18,7 +33,7 @@ You will need to access the root of your view from your presenter, so make sure 
     </VBox>
 ```
 
-###2. Use either the @Presents or @LoadedBy annotations on your controller/presenter classes.
+###3. Use either the @Presents or @LoadedBy annotations on your controller/presenter classes.
 
 Use the @LoadedBy annotation if your FXML contains a fx:controller attribute.
 
@@ -38,7 +53,7 @@ Use @Presents if your fxml does not contain a fx:controller.
     }
 ```
 
-###3. Map an FXML field to your root element and provide an accessor.
+###4. Map an FXML field to your root element and provide an accessor.
 
 You will be injecting your presenters throughout your application and will need this accessor to get the view.
 
@@ -51,7 +66,7 @@ You will be injecting your presenters throughout your application and will need 
     }
 ```
 
-###4. Create a JavaFXModule just like you would create a Guice module.
+###5. Create a JavaFXModule just like you would create a Guice module.
 
 ```java
     public class MyApplicationModule extends JavaFXModule {
@@ -63,7 +78,7 @@ You will be injecting your presenters throughout your application and will need 
     }
 ```
 
-###5. Initialize your Guice module in the application entry-point and inject your presenter.
+###6. Initialize your Guice module in the application entry-point and inject your presenter.
 
 ```java
     public class MyApplication extends Application {
@@ -81,7 +96,7 @@ You will be injecting your presenters throughout your application and will need 
     }
 ```
 
-###6. Bind your entry-point class. (Optional, but recommended)
+###7. Bind your entry-point class. (Optional, but recommended)
 
 The entry-point class does a injectMembers on itself, so you may wonder why you would want to also add it in the binder.
 The reason that it is here is so when Guice constructs it's graph of dependencies, it will throw an nice readable error
