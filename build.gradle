@@ -55,6 +55,7 @@ project(':guicefx') {
     }
 
     signing {
+        required false
         sign configurations.archives
     }
 
