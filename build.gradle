@@ -64,14 +64,14 @@ project(':guicefx') {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
                 repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                    authentication(userName: sonatypeUsername, password: sonatypePassword)
+                    authentication(userName: sonatypeUsername ?: '', password: sonatypePassword ?: '')
                 }
 
                 pom.project {
                     name 'GuiceFX'
                     packaging 'jar'
                     description 'This is a simple library for creating a MVP JavaFX application that uses Google Guice.'
-                    url 'http://gradlefx.github.com/'
+                    url 'http://github.com/sailorgeoffrey/guicefx'
 
                     scm {
                         url 'scm:git@github.com:sailorgeoffrey/guicefx.git'
