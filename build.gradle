@@ -30,8 +30,8 @@ project(':guicefx') {
     apply plugin: 'maven'
     apply plugin: 'signing'
 
-    group = 'io.adventageous.guicefx'
-    version = '0.2.2'
+    group = 'io.advantageous.guicefx'
+    version = '0.2.3'
 
     dependencies {
         testCompile "junit:junit:4.11"

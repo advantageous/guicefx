@@ -13,12 +13,12 @@ If you are using Maven, add the dependency to your pom.xml
     <dependency>
         <groupId>io.advantageous.guicefx</groupId>
         <artifactId>guicefx</artifactId>
-        <version>0.2.2</version>
+        <version>0.2.3</version>
     </dependency>
 ```
 If you are using Gradle
 ```groovy
-    compile 'io.advantageous.guicefx:guicefx:0.2.2'
+    compile 'io.advantageous.guicefx:guicefx:0.2.3'
 ```
 
 ###2. Create an FXML view.
