@@ -31,11 +31,11 @@ project(':guicefx') {
     apply plugin: 'signing'
 
     group = 'io.advantageous.guicefx'
-    version = '0.2.3'
+    version = '0.3.0'
 
     dependencies {
         testCompile "junit:junit:4.11"
-        compile 'com.google.inject:guice:3.0'
+        compile 'com.google.inject:guice:4.0'
     }
 
     task javadocJar(type: Jar, dependsOn: javadoc) {
@@ -75,12 +75,12 @@ project(':guicefx') {
                     name 'GuiceFX'
                     packaging 'jar'
                     description 'This is a simple library for creating a MVP JavaFX application that uses Google Guice.'
-                    url 'http://github.com/sailorgeoffrey/guicefx'
+                    url 'http://github.com/advantageous/guicefx'
 
                     scm {
-                        url 'scm:git@github.com:sailorgeoffrey/guicefx.git'
-                        connection 'scm:git@github.com:sailorgeoffrey/guicefx.git'
-                        developerConnection 'scm:git@github.com:sailorgeoffrey/guicefx.git'
+                        url 'scm:git@github.com:advantageous/guicefx.git'
+                        connection 'scm:git@github.com:advantageous/guicefx.git'
+                        developerConnection 'scm:git@github.com:advantageous/guicefx.git'
                     }
 
                     licenses {
